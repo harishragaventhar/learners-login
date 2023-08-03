@@ -1,1 +1,69 @@
+create database if not exists `learnersacademy`;
+
+USE `learnersacademy`;
+SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO';
+
+/*Table structure for table `class` */
+
+DROP TABLE IF EXISTS `class`;
+
+CREATE TABLE `class` (
+  `id` int(11) NOT NULL auto_increment,
+  `name` varchar(50) default NULL,
+  `day` varchar(50) default NULL,
+  `time` varchar(50) default NULL,
+  `subject_id` varchar(50) default NULL,
+  `teacher_id` varchar(50) default NULL,
+  `student_id` varchar(50) default NULL,
+  PRIMARY KEY  (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+/*Data for the table `class` */
+
+insert into `class` (`id`,`name`,`day`,`time`,`subject_id`,`teacher_id`,`student_id`) values (5,'Period 1','Monday','10.00','1','1','2'),(6,'Period 2','Tuesday','12.00','3','3','3'),(7,'Period 3','Wednesday','11.00','5','5','4'),(8,'Period 4','Tuesday','10.00','6','6','5'),(9,'Period 5','Thursday','3.00','7','7','6');
+
+/*Table structure for table `student` */
+
+DROP TABLE IF EXISTS `student`;
+
+CREATE TABLE `student` (
+  `id` int(50) NOT NULL auto_increment,
+  `name` varchar(100) default NULL,
+  PRIMARY KEY  (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+/*Data for the table `student` */
+
+insert into `student` (`id`,`name`) values (1,'kavin'),(3,'selva'),(5,'ram'),(6,'arun'),(7,'Kannan');
+
+/*Table structure for table `subject` */
+
+DROP TABLE IF EXISTS `subject`;
+
+CREATE TABLE `subject` (
+  `id` int(50) NOT NULL auto_increment,
+  `name` varchar(100) default NULL,
+  PRIMARY KEY  (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+/*Data for the table `subject` */
+
+insert into `subject` (`id`,`name`) values (1,'tamil'),(3,'Data Science'),(5,'Computer Science'),(6,'Mathematics'),(7,'Networks');
+
+/*Table structure for table `teacher` */
+
+DROP TABLE IF EXISTS `teacher`;
+
+CREATE TABLE `teacher` (
+  `id` int(50) NOT NULL auto_increment,
+  `name` varchar(100) default NULL,
+  `email` varchar(100) default NULL,
+  PRIMARY KEY  (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+/*Data for the table `teacher` */
+
+insert into `teacher` (`id`,`name`,`email`) values (2,'naveen','naveen@gmail,com'),(3,'Geetha','geetha@gmail.com'),(4,'Deepak','deepak1344@gmail.com'),(5,'Vignesh','vicky243@gmail.com'),(6,'Leela','leela54@gmail.com');
+
+SET SQL_MODE=@OLD_SQL_MODE;
 
